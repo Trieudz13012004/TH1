@@ -9,7 +9,8 @@ import java.time.LocalDateTime;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "student_id")
+    private int studentId;
 
     @Column(name="student_name", nullable = false)
     private String studentName;
@@ -25,19 +26,18 @@ public class Student {
 
     public Student() {}
 
-    public Student(int id, String studentName, LocalDateTime birthday, String className) {
-        this.id = id;
+    public Student(String studentName, LocalDateTime birthday, String className) {
         this.studentName = studentName;
         this.birthday = birthday;
         this.className = className;
     }
 
-    public int getId() {
-        return id;
+    public int getStudentId() {
+        return studentId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
     }
 
     public String getStudentName() {

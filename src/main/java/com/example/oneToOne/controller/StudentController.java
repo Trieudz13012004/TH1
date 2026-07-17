@@ -14,15 +14,15 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    //  get all
+    //    get all
     @GetMapping()
-    public List<Student> student(){
+    public List<Student> getAllStudents(){
         return studentService.getAll();
     }
 
-    //  get by id
+    //    get by id
     @GetMapping("/{id}")
-    public Student getStudent(@PathVariable String id){
+    public Student getStudentByID(@PathVariable String id){
         return studentService.getStudentByID(Integer.parseInt(id));
     }
 
@@ -38,6 +38,7 @@ public class StudentController {
         studentService.deleteStudent(Integer.parseInt(id));
     }
 
+    //    update Student by id
     @PutMapping("/{id}")
     public Student updateStudent(@PathVariable String id, @RequestBody Student student){
         return studentService.updateStudent(Integer.parseInt(id), student);

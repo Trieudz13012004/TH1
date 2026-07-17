@@ -20,31 +20,31 @@ public class StudentService {
     }
 
     //    GET BY ID
-    public Student getStudentByID(int id ){
-        return studentRepo.findById(id).orElseThrow(()->new ResponseStatusException(
+    public Student getStudentByID(int studentId){
+        return studentRepo.findById(studentId).orElseThrow(()->new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "User not found"
         ));
     }
 
     //    create new student
     public Student createStudent(Student student){
-    //  Gán ngược
+    //    Gán ngược
         if(student.getStudentCard() != null){
             student.getStudentCard().setStudent(student);
         }
         return studentRepo.save(student);
     }
 
-    //    delete
-    public void deleteStudent(int id){
-        studentRepo.deleteById(id);
+    //    delete Student
+    public void deleteStudent(int studentId){
+        studentRepo.deleteById(studentId);
     }
 
     //    Updtate nhưng chưa update được user
-    public Student updateStudent(int id, Student student){
+    public Student updateStudent(int studentId, Student student){
 
         // Kiểm tra xem student cũ có tồn tại trong db ko
-        Student oldStudent = studentRepo.findById(id).orElseThrow(()->new ResponseStatusException(
+        Student oldStudent = studentRepo.findById(studentId).orElseThrow(()->new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "Student not found"
         ));
 

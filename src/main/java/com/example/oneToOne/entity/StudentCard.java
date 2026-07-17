@@ -10,7 +10,8 @@ import java.time.LocalDateTime;
 public class StudentCard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "card_id")
+    private int cardId;
 
     @Column(name = "card_number", nullable = false, unique = true)
     private String cardNumber;
@@ -28,19 +29,18 @@ public class StudentCard {
 
     public StudentCard() {}
 
-    public StudentCard(int id, String cardNumber, LocalDateTime issueDate, LocalDateTime expireDate) {
-        this.id = id;
+    public StudentCard(String cardNumber, LocalDateTime issueDate, LocalDateTime expireDate) {
         this.cardNumber = cardNumber;
         this.issueDate = issueDate;
         this.expireDate = expireDate;
     }
 
-    public int getId() {
-        return id;
+    public int getCardId() {
+        return cardId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCardId(int cardId) {
+        this.cardId = cardId;
     }
 
     public String getCardNumber() {
