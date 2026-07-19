@@ -37,6 +37,9 @@ public class StudentService {
 
     //    delete Student
     public void deleteStudent(int studentId){
+        if (!studentRepo.existsById(studentId)) {
+            throw new RuntimeException("Không tìm thấy sinh viên!");
+        }
         studentRepo.deleteById(studentId);
     }
 

@@ -4,6 +4,7 @@ import com.example.oneToOne.entity.Student;
 import com.example.oneToOne.service.StudentService;
 import com.example.oneToOne.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,8 +35,9 @@ public class StudentController {
 
     //    delete Student by id
     @DeleteMapping("/{id}")
-    public void deleteStudent(@PathVariable String id){
+    public ResponseEntity<String> deleteStudent(@PathVariable String id){
         studentService.deleteStudent(Integer.parseInt(id));
+        return ResponseEntity.ok("Xóa thành công!");
     }
 
     //    update Student by id

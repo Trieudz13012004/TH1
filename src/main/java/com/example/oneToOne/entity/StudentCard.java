@@ -11,7 +11,7 @@ public class StudentCard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "card_id")
-    private int cardId;
+    private Integer cardId;
 
     @Column(name = "card_number", nullable = false, unique = true)
     private String cardNumber;
@@ -29,17 +29,18 @@ public class StudentCard {
 
     public StudentCard() {}
 
-    public StudentCard(String cardNumber, LocalDateTime issueDate, LocalDateTime expireDate) {
+    public StudentCard(Integer cardId, String cardNumber, LocalDateTime issueDate, LocalDateTime expireDate) {
+        this.cardId = cardId;
         this.cardNumber = cardNumber;
         this.issueDate = issueDate;
         this.expireDate = expireDate;
     }
 
-    public int getCardId() {
+    public Integer getCardId() {
         return cardId;
     }
 
-    public void setCardId(int cardId) {
+    public void setCardId(Integer cardId) {
         this.cardId = cardId;
     }
 

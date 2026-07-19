@@ -10,7 +10,7 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "student_id")
-    private int studentId;
+    private Integer studentId;
 
     @Column(name="student_name", nullable = false)
     private String studentName;
@@ -26,17 +26,18 @@ public class Student {
 
     public Student() {}
 
-    public Student(String studentName, LocalDateTime birthday, String className) {
+    public Student(Integer studentId, String studentName, LocalDateTime birthday, String className) {
+        this.studentId = studentId;
         this.studentName = studentName;
         this.birthday = birthday;
         this.className = className;
     }
 
-    public int getStudentId() {
+    public Integer getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(int studentId) {
+    public void setStudentId(Integer studentId) {
         this.studentId = studentId;
     }
 
